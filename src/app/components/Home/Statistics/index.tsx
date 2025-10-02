@@ -10,12 +10,12 @@ const Statistics = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/data')
+        const res = await fetch('/data/data.json')
         if (!res.ok) throw new Error('Failed to fetch')
         const data = await res.json()
         setStatistics(data.StatisticsData)
       } catch (error) {
-        console.error('Error fetching course:', error)
+        console.error('Error fetching statistics:', error)
       } finally {
         setLoading(false)
       }

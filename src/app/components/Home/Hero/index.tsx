@@ -38,9 +38,9 @@ const Hero = () => {
             "Solusi Digital, Infrastruktur, dan Sistem Terintegrasi untuk Pemerintah, Industri, dan Masyarakat."
           </h1>
           <div className='flex items-center gap-2 mt-4'>
-            <a href="/">
-              <button className='text-base text-black hover:text-primary bg-white px-4 py-2 rounded-lg shadow-md'>
-                Contact Us
+            <a href="/#contact">
+              <button className='border leading-none px-6 text-lg font-medium py-4 rounded-4xl transition-all duration-500 bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl'>
+                Hubungi Kami
               </button>
             </a>
 

@@ -20,12 +20,13 @@ export default function OurService() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('/api/data')
-        if (!res.ok) throw new Error('Failed to fetch data')
+        // 🔹 ambil langsung dari public/data/data.json
+        const res = await fetch('/data/data.json')
+        if (!res.ok) throw new Error('Failed to fetch data.json')
         const json = await res.json()
         setServices(json.ProjectSolutionData || [])
       } catch (err) {
-        console.error(err)
+        console.error('Error fetching services:', err)
       } finally {
         setLoading(false)
       }
@@ -65,4 +66,3 @@ export default function OurService() {
     </section>
   )
 }
-

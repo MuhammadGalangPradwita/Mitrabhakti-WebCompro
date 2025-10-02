@@ -12,12 +12,12 @@ const Footer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/data')
+        const res = await fetch('/data/data.json')
         if (!res.ok) throw new Error('Failed to fetch')
         const data = await res.json()
         SetFooterlink(data.FooterLinkData)
       } catch (error) {
-        console.error('Error fetching services:', error)
+        console.error('Error fetching footer links:', error)
       }
     }
     fetchData()
@@ -44,6 +44,8 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+
+          {/* Footer Links */}
           <div className='col-span-2'>
             <div className='flex gap-20'>
               {footerlink.map((product, i) => (
@@ -63,6 +65,8 @@ const Footer = () => {
               ))}
             </div>
           </div>
+
+          {/* Contact Info */}
           <div className='col-span-2 sm:col-span-6 md:col-span-2'>
             <div className='flex flex-col gap-10'>
               <div className='flex item-center'>
@@ -96,6 +100,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Bottom Section */}
         <div className='mt-10 lg:flex items-center justify-between border-t border-black/10 py-5'>
           <p className='text-black/50 text-base text-center lg:text-start font-normal'>
             @2025 Agency. All Rights Reserved by{' '}
@@ -109,13 +114,11 @@ const Footer = () => {
           </p>
           <div className='flex gap-5 mt-5 lg:mt-0 justify-center lg:justify-start'>
             <p className='text-black/50 text-base font-normal hover:text-primary hover:underline px-5 border-r border-grey/20'>
-                Privacy policy
-              </p>
-
+              Privacy policy
+            </p>
             <p className='text-black/50 text-base font-normal hover:text-primary hover:underline'>
-                Terms & conditions
-              </p>
-            
+              Terms & conditions
+            </p>
           </div>
         </div>
       </div>

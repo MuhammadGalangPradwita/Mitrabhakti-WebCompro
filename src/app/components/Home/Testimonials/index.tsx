@@ -16,12 +16,13 @@ const Testimonial = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/data')
+        // 🔽 ambil dari public/data/data.json
+        const res = await fetch('/data/data.json')
         if (!res.ok) throw new Error('Failed to fetch.')
         const data = await res.json()
-        setTestimonial(data.TestimonialData)
+        setTestimonial(data.TestimonialData) // pastikan key sesuai JSON
       } catch (error) {
-        console.error('Error fetching service:', error)
+        console.error('Error fetching testimonial:', error)
       } finally {
         setLoading(false)
       }
@@ -40,30 +41,15 @@ const Testimonial = () => {
     responsive: [
       {
         breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
+        settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true, dots: false },
       },
       {
         breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
+        settings: { slidesToShow: 2, slidesToScroll: 1, infinite: true, dots: false },
       },
       {
         breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
+        settings: { slidesToShow: 1, slidesToScroll: 1, infinite: true, dots: false },
       },
     ],
   }
@@ -75,24 +61,27 @@ const Testimonial = () => {
 
     return (
       <>
-        {Array(fullStars).fill(
+        {Array.from({ length: fullStars }).map((_, i) => (
           <Icon
+            key={`full-${i}`}
             icon='tabler:star-filled'
             className='text-yellow-500 text-xl inline-block'
           />
-        )}
+        ))}
         {halfStars > 0 && (
           <Icon
+            key='half'
             icon='tabler:star-half-filled'
             className='text-yellow-500 text-xl inline-block'
           />
         )}
-        {Array(emptyStars).fill(
+        {Array.from({ length: emptyStars }).map((_, i) => (
           <Icon
+            key={`empty-${i}`}
             icon='tabler:star-filled'
             className='text-gray-400 text-xl inline-block'
           />
-        )}
+        ))}
       </>
     )
   }
@@ -112,10 +101,7 @@ const Testimonial = () => {
               ))
             : testimonial.map((items, i) => (
                 <div key={i}>
-                  <div
-                    className={
-                      'bg-white border border-black/10 shadow-md rounded-2xl m-3 p-5 mt-20 relative'
-                    }>
+                  <div className='bg-white border border-black/10 shadow-md rounded-2xl m-3 p-5 mt-20 relative'>
                     <div className='absolute top-[-45px]'>
                       <Image
                         src={items.imgSrc}

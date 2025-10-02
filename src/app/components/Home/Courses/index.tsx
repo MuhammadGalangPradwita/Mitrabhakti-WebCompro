@@ -13,10 +13,10 @@ const Courses = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/data')
+        const res = await fetch('/data/data.json') 
         if (!res.ok) throw new Error('Failed to fetch')
         const data = await res.json()
-        setCourse(data.CourseData)
+        setCourse(data.CourseData) 
       } catch (error) {
         console.error('Error fetching course:', error)
       } finally {
