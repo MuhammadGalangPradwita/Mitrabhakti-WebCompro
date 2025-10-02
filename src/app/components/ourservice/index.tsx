@@ -13,9 +13,11 @@ const ServicesPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/data')
-        if (!res.ok) throw new Error('Failed to fetch')
+        // ambil langsung dari public/data/data.json
+        const res = await fetch('/data/data.json')
+        if (!res.ok) throw new Error('Failed to fetch data.json')
         const data = await res.json()
+
         setServices(data.ServicesData || [])
         setProjectSolutions(data.ProjectSolutionData || [])
         setProductBenefits(data.ProductBenefitData || [])
@@ -35,7 +37,7 @@ const ServicesPage = () => {
   return (
     <>
       {/* Page Header */}
-      <div className='text-center mt-40 mb-10'>
+      <div className='text-center mt-20 mb-10'>
         {/* <h2 className='text-4xl font-bold text-gray-900 mb-4'>
           Layanan Kami
         </h2> */}
@@ -64,7 +66,6 @@ const ServicesPage = () => {
                 {/* Right Content - Text */}
                 <div className="space-y-6">
                   <div>
-
                     <h2 className="text-3xl font-bold text-gray-900 mb-6">
                       {ps.title}
                     </h2>

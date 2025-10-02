@@ -17,15 +17,16 @@ const Header: React.FC = () => {
   const signUpRef = useRef<HTMLDivElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
+  // 🔑 fetch data.json langsung dari folder public
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/data')
+        const res = await fetch('/data/data.json') // ✅ ubah dari /api/data ke /data/data.json
         if (!res.ok) throw new Error('Failed to fetch')
         const data = await res.json()
         setNavLink(data.HeaderData)
       } catch (error) {
-        console.error('Error fetching service:', error)
+        console.error('Error fetching header data:', error)
       }
     }
     fetchData()
@@ -86,11 +87,14 @@ const Header: React.FC = () => {
               <HeaderLink key={index} item={item} />
             ))}
           </nav>
-
         </div>
+
+        {/* overlay */}
         {navbarOpen && (
           <div className='fixed top-0 left-0 w-full h-full bg-black/50 z-40' />
         )}
+
+        {/* mobile menu */}
         <div
           ref={mobileMenuRef}
           className={`lg:hidden fixed top-0 right-0 h-full w-full bg-white shadow-lg transform transition-transform duration-300 max-w-xs ${navbarOpen ? 'translate-x-0' : 'translate-x-full'
@@ -99,7 +103,6 @@ const Header: React.FC = () => {
             <div>
               <Logo />
             </div>
-            {/*  */}
             <button
               onClick={() => setNavbarOpen(false)}
               className='hover:cursor-pointer'

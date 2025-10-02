@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { AboutType, VisionMissionType, ProfileType } from '@/app/types/about'
 
 const AboutPage = () => {
@@ -14,14 +13,15 @@ const AboutPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/data')
+        const res = await fetch('/data/data.json')
         if (!res.ok) throw new Error('Failed to fetch')
         const data = await res.json()
-        setAbout(data.AboutData)
-        setVisionMission(data.VisionMissionData)
-        setProfiles(data.ProfileData)
+
+        setAbout(data.AboutData || [])
+        setVisionMission(data.VisionMissionData || null)
+        setProfiles(data.ProfileData || [])
       } catch (error) {
-        console.error('Error fetching about data:', error)
+        console.error('Error loading about data:', error)
       } finally {
         setLoading(false)
       }
@@ -112,7 +112,7 @@ const AboutPage = () => {
               </h2>
             </div>
 
-            {/* Profile Grid - 2 kolom dan rata tengah */}
+            {/* Profile Grid */}
             <div className='flex justify-center'>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-0'>
                 {profiles.map((profile, i) => (
