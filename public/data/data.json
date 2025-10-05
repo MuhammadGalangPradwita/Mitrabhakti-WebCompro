@@ -5,6 +5,33 @@
     { "label": "Layanan Kami", "href": "/ourservice" },
     { "label": "Hubungi Kami", "href": "/#contact" }
   ],
+  "SuperiorityData": [
+    {
+        "number": "01",
+        "heading": "Anak Perusahaan BUMN (PT INTI Group)",
+        "description": "Reputasi dan dukungan kuat dari induk usaha (PT Industri Telekomunikasi Indonesia), memberi kredibilitas dan jaringan luas di industri telekomunikasi & informatika."
+    },
+    {
+        "number": "02",
+        "heading": "Layanan Terintegrasi",
+        "description": "Menyediakan solusi lengkap: perdagangan umum, penyediaan suku cadang, konstruksi (OSP), aktivasi instalasi, pemeliharaan perangkat telekomunikasi & IT, hingga manage service dan engineering services."
+    },
+    {
+        "number": "03",
+        "heading": "Pengalaman Panjang (Sejak 1996)",
+        "description": "Memiliki rekam jejak lebih dari 25 tahun dalam mendukung pembangunan infrastruktur telekomunikasi, informatika, dan jasa konstruksi di Indonesia."
+    },
+    {
+        "number": "04",
+        "heading": "Tenaga Kerja Kompeten",
+        "description": "Menyediakan tenaga kerja ahli dan berpengalaman dalam proyek telekomunikasi, konstruksi, maupun IT."
+    },
+    {
+        "number": "05",
+        "heading": "Jaringan Partner & Dukungan Material",
+        "description": "Bekerja sama dengan berbagai partner strategis untuk mendukung kebutuhan proyek (full energy efficient solutions, industri pakaian jadi/uniform untuk kebutuhan internal dan proyek)."
+    }
+  ],
   "TechGaintsData": [
     { "imgSrc": "/images/companies/a.png" },
     { "imgSrc": "/images/companies/b.png" },
@@ -171,7 +198,7 @@
     }
   },
   "ProfileData": [
-    { "heading": "Abdul Aziz N Nalole,ST", "img": "/images/struktur/Direktur.png", "name": "Direktur Utama" },
+    { "heading": "Abdul Aziz N Nalole,ST", "img": "/images/struktur/Direktur1.png", "name": "Direktur Utama" },
     { "heading": "Didik Pebrianto,SH", "img": "/images/struktur/Komisaris.png", "name": "Dewan Komisaris" }
   ],
   "FooterLinkData": [
