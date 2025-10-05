@@ -93,7 +93,7 @@ const Footer = () => {
                   className='text-primary text-3xl lg:text-2xl inline-block me-2'
                 />
                 <p className='text-black/60 hover:text-primary text-base'>
-                  aziznalole@mitrabhakti.com
+                  info@mitrabhakti.com
                 </p>
               </Link>
             </div>

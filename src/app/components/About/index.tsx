@@ -2,13 +2,15 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { AboutType, VisionMissionType, ProfileType } from '@/app/types/about'
+import { AboutType, VisionMissionType, ProfileType} from '@/app/types/about'
+import { SuperiorityType } from '@/app/types/superiority'
 
 const AboutPage = () => {
   const [about, setAbout] = useState<AboutType[]>([])
   const [visionMission, setVisionMission] = useState<VisionMissionType | null>(null)
   const [profiles, setProfiles] = useState<ProfileType[]>([])
   const [loading, setLoading] = useState(true)
+  const [superiority, setSuperiority] = useState<SuperiorityType[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +22,7 @@ const AboutPage = () => {
         setAbout(data.AboutData || [])
         setVisionMission(data.VisionMissionData || null)
         setProfiles(data.ProfileData || [])
+        setSuperiority(data.SuperiorityData || [])
       } catch (error) {
         console.error('Error loading about data:', error)
       } finally {
@@ -146,15 +149,34 @@ const AboutPage = () => {
       )}
 
       <section>
-        <div className='container mx-auto px-4 mx-10'>
-          <h2 className="text-4xl font-bold text-gray-900 mx-10 mb-20 text-center">
-            Struktur Organisasi
-          </h2>
-          <img
-            src="/images/struktur/Struktural Mitrabhakti.png"
-            alt="Struktur Organisasi"
-            className="mx-auto mt-8 max-w-4xl w-full h-auto"
-          />
+        <div className='container'>
+          <div className='text-center mb-16'>
+              <h2 className='text-4xl font-bold text-gray-900 mb-4'>
+                Keunggulan Strategis
+              </h2>
+            </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+            {superiority.map((superiority, i) => (
+              <div key={i} className="flex justify-center">
+                <div className='bg-white m-3 px-8 pt-8 pb-12 shadow-lg rounded-2xl h-full border border-gray-200 hover:shadow-xl transition-shadow duration-300'>
+                  {/* Number Badge */}
+                  <div className='mb-6'>
+                    <span className='text-6xl font-bold text-blue-600'>
+                      {superiority.number}
+                    </span>
+                  </div>
+                  <div className='px-3'>
+                    <h6 className='text-black text-2xl font-bold mb-4 leading-tight text-left'>
+                      {superiority.heading}
+                    </h6>
+                    <p className='text-base font-normal text-gray-700 text-left leading-relaxed'>
+                      {superiority.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
