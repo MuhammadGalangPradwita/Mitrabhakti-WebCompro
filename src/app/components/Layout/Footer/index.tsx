@@ -1,32 +1,19 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from '../Header/Logo'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { FooterLinkType } from '@/app/types/footerlink'
+import data from '@/app/data/data.json'
 
 const Footer = () => {
-  const [footerlink, SetFooterlink] = useState<FooterLinkType[]>([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('/data/data.json')
-        if (!res.ok) throw new Error('Failed to fetch')
-        const data = await res.json()
-        SetFooterlink(data.FooterLinkData)
-      } catch (error) {
-        console.error('Error fetching footer links:', error)
-      }
-    }
-    fetchData()
-  }, [])
+  const footerlink: FooterLinkType[] = data.FooterLinkData
 
   return (
     <footer className='bg-deep-slate pt-10'>
       <div className='container'>
         <div className='grid grid-cols-1 sm:grid-cols-6 lg:gap-20 md:gap-24 sm:gap-12 gap-12 pb-10'>
+          {/* Logo dan Sosial Media */}
           <div className='col-span-2'>
             <div className='mb-10'>
               <Logo />

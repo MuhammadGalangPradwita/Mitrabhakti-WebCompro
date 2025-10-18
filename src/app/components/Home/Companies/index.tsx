@@ -1,27 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import data from '@/app/data/data.json'
 
 const Companies = () => {
-  const [techGaint, setTechGaint] = useState<{ imgSrc: string }[]>([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('/data/data.json')
-        if (!res.ok) throw new Error('Failed to fetch')
-        const data = await res.json()
-        setTechGaint(data.TechGaintsData)
-      } catch (error) {
-        console.error('Error loading TechGaintsData:', error)
-      }
-    }
-    fetchData()
-  }, [])
+  const techGaint = data.TechGaintsData || []
 
   const settings = {
     dots: false,
@@ -41,23 +27,23 @@ const Companies = () => {
   }
 
   return (
-    <section className='text-center'>
-      <div className='container'>
-        <div className='text-center mb-16'>
-          <h2 className='text-4xl font-bold text-gray-900 mb-4'>
-            Partner & Pelanggan 
+    <section className="text-center">
+      <div className="container">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Partner & Pelanggan
           </h2>
         </div>
-        <div className='py-7 border-b'>
+        <div className="py-7 border-b">
           <Slider {...settings}>
             {techGaint.map((item, i) => (
-              <div key={i}>
+              <div key={i} className="flex justify-center">
                 <Image
                   src={item.imgSrc}
-                  alt={item.imgSrc}
+                  alt={`Logo ${i}`}
                   width={116}
                   height={40}
-                  className='w-auto'
+                  className="w-auto"
                 />
               </div>
             ))}

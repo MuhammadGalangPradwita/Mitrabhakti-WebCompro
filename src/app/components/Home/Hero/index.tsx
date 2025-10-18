@@ -1,24 +1,29 @@
 import Image from 'next/image'
-import { Icon } from '@iconify/react/dist/iconify.js'
 
 const Hero = () => {
   return (
     <section id='home-section' className='pt-20'>
       <div
-        style={{
-          position: 'relative',
-          width: '100%',
-          minHeight: 600,
-          overflow: 'hidden',
-          height: 'auto'
-        }}
+        className='relative w-full overflow-hidden min-h-[400px] md:min-h-[600px] bg-gray-100' 
       >
         <Image
           src='/images/banner/homeBase1.png'
-          alt='nothing'
+          alt='Hero background'
           fill
-          style={{ objectFit: 'cover' }}
+          sizes='100vw'
+          quality={70}             
+          placeholder='blur'       
+          blurDataURL='/images/banner/homeBase1-blur.jpg' 
+          priority={false}         
+          loading='lazy'          
+          className='
+            object-contain    
+            md:object-cover   
+            object-center
+            transition-opacity duration-700 ease-in-out 
+          '
         />
+
         <div
           style={{
             position: 'absolute',
@@ -34,16 +39,16 @@ const Hero = () => {
             padding: '0 2rem'
           }}
         >
-          <h1 className='text-xl lg:text-4xl font-bold text-white'>
-          </h1>
-          <div className='container mx-auto mt-70 flex justify-start'>
+          <h1 className='text-xl lg:text-4xl font-bold text-white'></h1>
+
+          <div className="container mx-auto mt-[120px] md:mt-[230px] flex justify-start">
             <a href="/#contact">
-              <button className='border leading-none px-6 text-lg font-medium py-4 rounded-4xl transition-all duration-500 bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl'>
+              <button className="leading-none px-6 text-lg font-medium py-4 rounded-4xl transition-all duration-500 bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl">
                 Hubungi Kami
               </button>
             </a>
-
           </div>
+
         </div>
       </div>
     </section>
