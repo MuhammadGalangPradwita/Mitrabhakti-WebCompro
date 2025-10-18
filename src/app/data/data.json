@@ -33,6 +33,7 @@
     }
   ],
   "TechGaintsData": [
+    { "imgSrc": "/images/companies/aa.png" },
     { "imgSrc": "/images/companies/a.png" },
     { "imgSrc": "/images/companies/b.png" },
     { "imgSrc": "/images/companies/1.png" },

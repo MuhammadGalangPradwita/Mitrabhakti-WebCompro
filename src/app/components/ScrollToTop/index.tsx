@@ -28,6 +28,9 @@ export default function ScrollToTop() {
   return (
     <div className="fixed bottom-8 right-8 z-999">
       <div className="flex items-center gap-2.5">
+        <Link href={"https://drive.google.com/drive/folders/10EeK0JWEaqfkdU8UpbP5hW_S0SQxrwKU"} target="_blank" className="hidden lg:block bg-primary text-white hover:bg-primary/15 hover:text-primary text-sm font-medium px-4 py-3.5 leading-none rounded-lg text-nowrap">
+          Download Company Profile
+        </Link>
         {isVisible && (
           <div
             onClick={scrollToTop}

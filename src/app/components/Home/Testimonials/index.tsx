@@ -16,11 +16,10 @@ const Testimonial = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 🔽 ambil dari public/data/data.json
         const res = await fetch('/data/data.json')
         if (!res.ok) throw new Error('Failed to fetch.')
         const data = await res.json()
-        setTestimonial(data.TestimonialData) // pastikan key sesuai JSON
+        setTestimonial(data.TestimonialData)
       } catch (error) {
         console.error('Error fetching testimonial:', error)
       } finally {
